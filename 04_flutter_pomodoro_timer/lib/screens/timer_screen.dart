@@ -3,8 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_pomodoro_timer/tools/utils.dart';
 
+// Enumeration
 enum TimerStatus { running, paused, stopped, resting }
 
+// Status -> 이벤트에 따라 변화하는 앱 싱태
+// State -> 앱에서 관리할 상태 변수
+
+// StatefulWidget
 class TimerScreen extends StatefulWidget {
   _TimerScreenState createState() => _TimerScreenState();
 }
@@ -13,10 +18,12 @@ class _TimerScreenState extends State<TimerScreen> {
   static const WORK_SECONDS = 25 * 60;
   static const REST_SECONDS = 5 * 60;
 
+  // late (변수 초기화 시점 지연)
   late TimerStatus _timerStatus;
   late int _timer;
   late int _pomodoroCount;
 
+  // 상태 초기값 설정
   @override
   void initState() {
     super.initState();
@@ -62,10 +69,11 @@ class _TimerScreenState extends State<TimerScreen> {
   }
 
   void runTimer() async {
+    // duration !
     Timer.periodic(Duration(seconds: 1), (Timer t) {
       switch (_timerStatus) {
         case TimerStatus.paused:
-          t.cancel();
+          t.cancel(); // 타이머 종료
           break;
         case TimerStatus.stopped:
           t.cancel();
