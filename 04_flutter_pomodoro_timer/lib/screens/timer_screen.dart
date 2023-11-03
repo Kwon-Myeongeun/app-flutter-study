@@ -169,8 +169,13 @@ class _TimerScreenState extends State<TimerScreen> {
         _timerStatus == TimerStatus.resting ? Colors.green : Colors.blue,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //현재 타이머 상태가 resting이면 버튼 위젯이 없기 때문에 spaceAround 하게 되면 타이머 위치가 계속 바뀜
+        //spaceAround -> start 수정 후 SizedBox 추가
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          const SizedBox(
+            height: 100,
+          ),
           Container(
             height: MediaQuery.of(context).size.height * 0.5,
             width: MediaQuery.of(context).size.width * 0.6,
