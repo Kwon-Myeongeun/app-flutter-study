@@ -12,6 +12,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   Future<bool> checkLogin() async {
+    // shared_preferences
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool isLogin = prefs.getBool('isLogin') ?? false;
     print('[*] isLogin : ' + isLogin.toString());

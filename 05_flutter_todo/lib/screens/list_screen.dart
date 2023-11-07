@@ -62,7 +62,9 @@ class _ListScreenState extends State<ListScreen> {
                 String title = '';
                 String description = '';
                 return AlertDialog(
+                  // title of dialog
                   title: Text('할 일 추가하기'),
+                  // contents of dialog
                   content: Container(
                     height: 200,
                     child: Column(
@@ -82,6 +84,7 @@ class _ListScreenState extends State<ListScreen> {
                       ],
                     ),
                   ),
+                  // button of dialog
                   actions: [
                     TextButton(
                         child: Text('추가'),
