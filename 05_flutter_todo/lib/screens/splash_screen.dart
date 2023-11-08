@@ -13,6 +13,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   Future<bool> checkLogin() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    // ?? : null일 경우 값을 대입
     bool isLogin = prefs.getBool('isLogin') ?? false;
     print('[*] isLogin : ' + isLogin.toString());
     return isLogin;
@@ -39,6 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    //2초 뒤에 표시할 화면 설정
     Timer(Duration(seconds: 2), () {
       moveScreen();
     });

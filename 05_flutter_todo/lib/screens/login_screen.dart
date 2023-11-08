@@ -20,6 +20,7 @@ class LoginScreen extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.85,
           child: ElevatedButton(
             onPressed: () {
+              //걍 로그인 구현 없이 isLogin만 true로 설정하고 ListScreen화면으로 이동
               setLogin().then((_) {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
